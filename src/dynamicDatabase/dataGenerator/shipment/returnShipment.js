@@ -19,9 +19,9 @@ const addConfirmedCollectionPointData = (shipment, options = {}) => {
       collection_point: generateCollectionPoint(),
       carrier_label_response: {
         documents: {
-          file_format: documentFileFormat
-        }
-      }
+          file_format: documentFileFormat,
+        },
+      },
     };
     draft.parcel.carrier = generateCarrier();
   });
@@ -53,12 +53,12 @@ const generateReturnShipment = () => {
       return_item_image: [
         faker.image.abstract(),
         faker.image.abstract(),
-        faker.image.abstract()
-      ]
+        faker.image.abstract(),
+      ],
     };
     draft.from_address = {
       postal_code: "saigon",
-      email: "artemis@pp.com"
+      email: "artemis@pp.com",
     };
     draft.line_items.forEach((lineItem) => {
       lineItem.reason_for_return = faker.lorem.lines();
@@ -121,7 +121,7 @@ const generateBookedSuccessWithLabelShipment = () => {
     draft.return.return_status = RETURN_STATUSES.shipping;
   });
   shipment = addConfirmedCollectionPointData(shipment, {
-    documentFileFormat: "PDF"
+    documentFileFormat: "PDF",
   });
   shipment = updateReturnId(shipment, "BOOKED_SUCCESS--LABEL");
   return shipment;
@@ -133,7 +133,7 @@ const generateShippingShipment = () => {
     shipment.return.return_status = RETURN_STATUSES.shipping;
     draft.parcel.events = [
       PARCEL_EVENTS.parcelPickedUp,
-      PARCEL_EVENTS.parcelOrderProcessed
+      PARCEL_EVENTS.parcelOrderProcessed,
     ];
   });
   shipment = updateReturnId(shipment, "SHIPPING");
@@ -150,11 +150,27 @@ const generateReturnCompletedShipment = () => {
   return shipment;
 };
 
+const generateOrderShipments = () => {
+  let approvedShipment = produce(generateApprovedShipment(), (draft) => {
+    draft.id = 1;
+    draft.return.return_id = "RETURN_1";
+    draft.order_tracking = { order_code: "RETURN_APPROVED_COMPLETED" };
+  });
+
+  let returnCompleted = produce(generateReturnCompletedShipment(), (draft) => {
+    draft.id = 2;
+    draft.return.return_id = "RETURN_2";
+    draft.order_tracking = { order_code: "RETURN_APPROVED_COMPLETED" };
+  });
+
+  return [approvedShipment, returnCompleted];
+};
+
 // Return shipment UI testing
 
 const generateCustomReturnShipment = ({
   commentWord = 0,
-  attachmentNo = 0
+  attachmentNo = 0,
 }) => {
   let shipment = generateApprovedShipment();
 
@@ -185,7 +201,8 @@ const generateAllShipmentKinds = () => {
     generateBookPendingShipment(),
     generateShippingShipment(),
     generateReturnCompletedShipment(),
-    generateBookedSuccessWithLabelShipment()
+    generateBookedSuccessWithLabelShipment(),
+    ...generateOrderShipments(),
   ];
 };
 
@@ -193,5 +210,5 @@ module.exports = {
   generateAllShipmentKinds,
   generateCancelledShipment,
   generateBookedSuccessShipment,
-  generateCustomReturnShipment
+  generateCustomReturnShipment,
 };
