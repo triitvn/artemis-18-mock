@@ -3,7 +3,7 @@ const {
   generateApiData,
   generateCancelledShipment,
   generateBookedSuccessShipment,
-  generateCustomReturnShipment
+  generateCustomReturnShipment,
 } = require("./dynamicDatabase");
 const server = jsonServer.create();
 const router = jsonServer.router(generateApiData());
@@ -41,7 +41,7 @@ router.render = (req, res, next) => {
         const [key, value] = item.split(":");
         return {
           ...acc,
-          [key]: value
+          [key]: value,
         };
       }, {});
 
@@ -58,4 +58,6 @@ server.listen(3000, () => {
   console.log("JSON Server is running");
   console.log("aaa");
   console.log("aaaaaaab");
+
+  console.log("cccccc");
 });
