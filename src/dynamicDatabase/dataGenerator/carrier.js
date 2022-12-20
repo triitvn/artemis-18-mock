@@ -8,7 +8,8 @@ const generateCarrier = () => {
     carrier_logo: "//assets.parcelperform.com/logo/dhleco.png",
     carrier_url: randomNullable(() => faker.internet.url()),
     name: randomNullable(() => faker.company.companyName()),
-    phone: "8798790808098098"
+    carrier_cs_phone: "8798790808098098",
+    carrier_url_tracking: "http://google.com"
   };
 };
 
