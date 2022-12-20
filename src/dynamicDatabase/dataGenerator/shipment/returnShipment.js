@@ -144,7 +144,8 @@ const generateReturnCompletedShipment = () => {
   let shipment = generateShippingShipment();
   shipment = produce(shipment, (draft) => {
     draft.return.return_status = RETURN_STATUSES.completed;
-    draft.shipment_events.unshift(SHIPMENT_EVENTS.returnCompleted);
+    // Hack to show as a last event
+    draft.parcel.events.unshift(SHIPMENT_EVENTS.returnCompleted);
   });
   shipment = updateReturnId(shipment, "RETURN_COMPLETED");
   return shipment;
