@@ -45,7 +45,7 @@ const generateParcel = () => {
   const events = generateEvents(5);
   const parcel = {
     id: Number.parseInt(faker.datatype.number({ max: 99999 }), 10),
-    parcel_id: "",
+    parcel_id: "MOCKED_PARCEL_ID",
     status: PARCEL_STATUS[Math.floor(Math.random() * 3)],
     updated_date: new Date().toISOString(),
     carrier: {
