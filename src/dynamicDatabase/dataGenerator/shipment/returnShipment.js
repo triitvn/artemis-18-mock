@@ -145,7 +145,10 @@ const generateReturnCompletedShipment = () => {
   shipment = produce(shipment, (draft) => {
     draft.return.return_status = RETURN_STATUSES.completed;
     // Hack to show as a last event
-    draft.parcel.events.unshift(SHIPMENT_EVENTS.returnCompleted);
+    draft.parcel.events.unshift({
+      ...SHIPMENT_EVENTS.returnCompleted,
+      carrier: {}
+    });
   });
   shipment = updateReturnId(shipment, "RETURN_COMPLETED");
   return shipment;
