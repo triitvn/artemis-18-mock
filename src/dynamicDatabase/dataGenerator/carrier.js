@@ -7,7 +7,8 @@ const generateCarrier = () => {
     carrier_id: "dhleco",
     carrier_logo: "//assets.parcelperform.com/logo/dhleco.png",
     carrier_url: randomNullable(() => faker.internet.url()),
-    name: randomNullable(() => faker.company.companyName())
+    name: randomNullable(() => faker.company.companyName()),
+    phone: "8798790808098098"
   };
 };
 
