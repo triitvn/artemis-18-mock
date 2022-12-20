@@ -8,10 +8,7 @@ const generateShipment = () => {
     shipment_status: "active",
     shipment_id: "SHIP7101192",
     line_items: generateLineItems(3),
-    parcel: {
-      ...generateParcel(),
-      parcel_id: "PARCEL_ID_001"
-    }
+    parcel: generateParcel()
   };
   return shipment;
 };

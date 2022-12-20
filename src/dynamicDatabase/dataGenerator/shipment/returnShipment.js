@@ -63,6 +63,8 @@ const generateReturnShipment = () => {
     draft.line_items.forEach((lineItem) => {
       lineItem.reason_for_return = faker.lorem.lines();
     });
+    draft.parcel.parcel_id = "PARCEL_ID_001";
+    draft.parcel.status = "active";
   });
 };
 
