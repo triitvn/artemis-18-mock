@@ -4,7 +4,10 @@ const returnApproved = {
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_REQUEST_APPROVED",
-    analytics: "regular"
+    analytics: "regular",
+    event_phase: {
+      key: 'TEMPORARILY_KEY__APPROVED'
+    }
   }
 };
 
@@ -14,7 +17,10 @@ const returnCancelled = {
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_REQUEST_CANCELLED",
-    analytics: "regular"
+    analytics: "regular",
+    event_phase: {
+      key: 'TEMPORARILY_KEY__CANCELLED'
+    }
   }
 };
 
@@ -24,7 +30,10 @@ const returnBookedSuccess = {
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_BOOKED_SUCCESS",
-    analytics: "regular"
+    analytics: "regular",
+    event_phase: {
+      key: 'TEMPORARILY_KEY__SHIPPING'
+    }
   }
 };
 
@@ -34,7 +43,23 @@ const returnBookedError = {
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_BOOKED_ERROR",
-    analytics: "exception"
+    analytics: "exception",
+    event_phase: {
+      key: 'TEMPORARILY_KEY__BOOK_FAILED'
+    }
+  }
+};
+
+const returnReceived = {
+  event_type: "Refunded",
+  event_time: "2022-01-10T00:05:00Z",
+  parsed_event_time_timezone: "Etc/GMT-8",
+  event_type_master_data: {
+    key: "RETURN_EVENT_RECEIVED",
+    analytics: "regular",
+    event_phase: {
+      key: 'TEMPORARILY_KEY__RECEIVED'
+    }
   }
 };
 
@@ -44,14 +69,18 @@ const returnCompleted = {
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_REFUND_COMPLETED",
-    analytics: "regular"
+    analytics: "regular",
+    event_phase: {
+      key: 'TEMPORARILY_KEY__REFUND_COMPLETED'
+    }
   }
 };
 
 module.exports = {
   returnApproved,
   returnCancelled,
-  returnCompleted,
   returnBookedSuccess,
-  returnBookedError
+  returnBookedError,
+  returnReceived,
+  returnCompleted,
 };

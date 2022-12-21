@@ -142,15 +142,21 @@ const generateShippingShipment = () => {
   return shipment;
 };
 
-const generateReturnCompletedShipment = () => {
+const generateReturnReceivedShipment = () => {
   let shipment = generateShippingShipment();
   shipment = produce(shipment, (draft) => {
+    draft.return.return_status = RETURN_STATUSES.received;
+    draft.shipment_events.unshift(SHIPMENT_EVENTS.returnReceived);
+  });
+  shipment = updateReturnId(shipment, "RETURN_RECEIVED");
+  return shipment;
+};
+
+const generateReturnCompletedShipment = () => {
+  let shipment = generateReturnReceivedShipment();
+  shipment = produce(shipment, (draft) => {
     draft.return.return_status = RETURN_STATUSES.completed;
-    // Hack to show as a last event
-    draft.parcel.events.unshift({
-      ...SHIPMENT_EVENTS.returnCompleted,
-      carrier: {}
-    });
+    draft.shipment_events.unshift(SHIPMENT_EVENTS.returnCompleted);
   });
   shipment = updateReturnId(shipment, "RETURN_COMPLETED");
   return shipment;
@@ -208,6 +214,7 @@ const generateAllShipmentKinds = () => {
     generateShippingShipment(),
     generateReturnCompletedShipment(),
     generateBookedSuccessWithLabelShipment(),
+    generateReturnReceivedShipment(),
     ...generateOrderShipments(),
   ];
 };
