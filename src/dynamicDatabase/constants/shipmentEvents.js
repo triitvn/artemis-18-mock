@@ -6,74 +6,74 @@ const returnApproved = {
     key: "RETURN_EVENT_REQUEST_APPROVED",
     analytics: "regular",
     event_phase: {
-      key: 'TEMPORARILY_KEY__APPROVED'
-    }
-  }
+      key: "TEMPORARILY_KEY__APPROVED",
+    },
+  },
 };
 
 const returnCancelled = {
   event_type: "Request has been cancelled",
-  event_time: "2022-01-01T01:05:00Z",
+  event_time: "2022-01-02T00:05:00Z",
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_REQUEST_CANCELLED",
     analytics: "regular",
     event_phase: {
-      key: 'TEMPORARILY_KEY__CANCELLED'
-    }
-  }
+      key: "TEMPORARILY_KEY__CANCELLED",
+    },
+  },
 };
 
 const returnBookedSuccess = {
   event_type: "Parcel Book success",
-  event_time: "2022-01-01T02:05:00Z",
+  event_time: "2022-01-02T02:00:00Z",
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_BOOKED_SUCCESS",
     analytics: "regular",
     event_phase: {
-      key: 'TEMPORARILY_KEY__SHIPPING'
-    }
-  }
+      key: "TEMPORARILY_KEY__SHIPPING",
+    },
+  },
 };
 
 const returnBookedError = {
   event_type: "Parcel Book error",
-  event_time: "2022-01-01T02:05:00Z",
+  event_time: "2022-01-02T00:05:00Z",
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_BOOKED_ERROR",
     analytics: "exception",
     event_phase: {
-      key: 'TEMPORARILY_KEY__BOOK_FAILED'
-    }
-  }
+      key: "TEMPORARILY_KEY__BOOK_FAILED",
+    },
+  },
 };
 
-const returnReceived = {
-  event_type: "Refunded",
+const qualityCheckInProgress = {
+  event_type: "Quality check in progress",
   event_time: "2022-01-10T00:05:00Z",
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
-    key: "RETURN_EVENT_RECEIVED",
+    key: "RETURN_EVENT_QUALITY_CHECK_IN_PROGRESS",
     analytics: "regular",
     event_phase: {
-      key: 'TEMPORARILY_KEY__RECEIVED'
-    }
-  }
+      key: "TEMPORARILY_KEY__QUALITY_CHECK_IN_PROGRESS",
+    },
+  },
 };
 
 const returnCompleted = {
   event_type: "Refunded",
-  event_time: "2022-01-10T00:05:00Z",
+  event_time: "2022-01-10T02:00:00Z",
   parsed_event_time_timezone: "Etc/GMT-8",
   event_type_master_data: {
     key: "RETURN_EVENT_REFUND_COMPLETED",
     analytics: "regular",
     event_phase: {
-      key: 'TEMPORARILY_KEY__REFUND_COMPLETED'
-    }
-  }
+      key: "TEMPORARILY_KEY__REFUND_COMPLETED",
+    },
+  },
 };
 
 module.exports = {
@@ -81,6 +81,6 @@ module.exports = {
   returnCancelled,
   returnBookedSuccess,
   returnBookedError,
-  returnReceived,
+  qualityCheckInProgress,
   returnCompleted,
 };

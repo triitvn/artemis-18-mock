@@ -6,7 +6,6 @@ const generateShipment = require("./shipment");
 const generateCollectionPoint = require("../collectionPoint");
 const generateCarrier = require("../carrier");
 const faker = require("faker");
-const { fake } = require("faker/locale/en_IND");
 
 // Utils
 
@@ -146,7 +145,7 @@ const generateReturnReceivedShipment = () => {
   let shipment = generateShippingShipment();
   shipment = produce(shipment, (draft) => {
     draft.return.return_status = RETURN_STATUSES.received;
-    draft.shipment_events.unshift(SHIPMENT_EVENTS.returnReceived);
+    draft.shipment_events.unshift(SHIPMENT_EVENTS.qualityCheckInProgress);
   });
   shipment = updateReturnId(shipment, "RETURN_RECEIVED");
   return shipment;

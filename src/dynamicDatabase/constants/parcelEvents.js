@@ -14,25 +14,25 @@ const parcelOrderProcessed = {
     carrier_countries: [],
     timezone_awareness: "location_local_time",
     has_source_site: true,
-    carrier_url_tracking: "www.globalmail.dhl.com"
+    carrier_url_tracking: "www.globalmail.dhl.com",
   },
   event_type: "Order processed",
   event_type_master_data: null,
-  event_time: "2022-12-08T23:20:03Z",
+  event_time: "2022-01-03T00:05:00Z",
   event_location: "Thành phố Hồ Chí Minh, Thành phố Hồ Chí Minh, Việt Nam",
   additional_params: {},
-  imported_date: "2022-12-13T13:01:06.352385Z",
+  imported_date: "2022-01-03T00:05:00Z",
   timezone_awareness: null,
   event_location_mapper_data: {
     id: 915890,
     locality: "Ho Chi Minh City",
     country: "Vietnam",
-    postal_code: ""
+    postal_code: "",
   },
-  original_time: "2022-12-09T06:20:03",
+  original_time: "2022-01-03T00:05:00",
   original_event_type: "Order processed",
   original_location: "Ho Chi Minh",
-  parsed_event_time: "2022-12-08T23:20:03Z",
+  parsed_event_time: "2022-01-03T00:05:00Z",
   has_location_mapped: true,
   parsed_event_time_timezone: "Asia/Ho_Chi_Minh",
   event_input_source: "api",
@@ -43,8 +43,8 @@ const parcelOrderProcessed = {
   timezone_source: "location",
   event_type_mapped_date: null,
   event_type_mapper_data: {
-    id: 242389
-  }
+    id: 242389,
+  },
 };
 
 const parcelPickedUp = {
@@ -63,7 +63,7 @@ const parcelPickedUp = {
     carrier_countries: [],
     timezone_awareness: "location_local_time",
     has_source_site: true,
-    carrier_url_tracking: "www.globalmail.dhl.com"
+    carrier_url_tracking: "www.globalmail.dhl.com",
   },
   event_type: "Pick-up successful",
   event_type_master_data: {
@@ -73,10 +73,10 @@ const parcelPickedUp = {
       event_stage: {
         id: 5,
         name: "Picked Up",
-        key: "picked_up"
+        key: "picked_up",
       },
       name: "(D) Pickup",
-      key: "D"
+      key: "D",
     },
     name: "(R) Pick-up successful",
     key: "D20",
@@ -89,23 +89,23 @@ const parcelPickedUp = {
     is_cross_border: false,
     is_cod: false,
     is_fixed_address: false,
-    owner_type: "parcel"
+    owner_type: "parcel",
   },
-  event_time: "2022-12-13T01:01:01Z",
+  event_time: "2022-01-03T01:01:01Z",
   event_location: "Thành phố Hồ Chí Minh, Thành phố Hồ Chí Minh, Việt Nam",
   additional_params: {},
-  imported_date: "2022-12-13T13:01:06.367138Z",
+  imported_date: "2022-01-03T13:01:06.367138Z",
   timezone_awareness: null,
   event_location_mapper_data: {
     id: 915890,
     locality: "Ho Chi Minh City",
     country: "Vietnam",
-    postal_code: ""
+    postal_code: "",
   },
-  original_time: "2022-12-13T08:01:01",
+  original_time: "2022-01-03T08:01:01",
   original_event_type: "Pick-up successful",
   original_location: "Ho Chi Minh",
-  parsed_event_time: "2022-12-13T01:01:01Z",
+  parsed_event_time: "2022-01-03T01:01:01Z",
   has_location_mapped: true,
   parsed_event_time_timezone: "Asia/Ho_Chi_Minh",
   event_input_source: "api",
@@ -114,13 +114,13 @@ const parcelPickedUp = {
   event_source_type: "account",
   event_source_details: "592",
   timezone_source: "location",
-  event_type_mapped_date: "2022-12-13T13:01:06.361575Z",
+  event_type_mapped_date: "2022-01-03T13:01:06.361575Z",
   event_type_mapper_data: {
-    id: 202174
-  }
+    id: 202174,
+  },
 };
 
 module.exports = {
   parcelOrderProcessed,
-  parcelPickedUp
+  parcelPickedUp,
 };
