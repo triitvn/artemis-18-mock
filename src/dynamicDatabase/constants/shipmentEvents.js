@@ -6,7 +6,9 @@ const returnApproved = {
     key: "RETURN_EVENT_REQUEST_APPROVED",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__APPROVED",
+      event_stage: {
+        key: "select_shipment_method",
+      },
     },
   },
 };
@@ -19,7 +21,9 @@ const returnCancelled = {
     key: "RETURN_EVENT_REQUEST_CANCELLED",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__CANCELLED",
+      event_stage: {
+        key: "select_shipment_method",
+      },
     },
   },
 };
@@ -32,7 +36,9 @@ const returnBookedSuccess = {
     key: "RETURN_EVENT_BOOKED_SUCCESS",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__SHIPPING",
+      event_stage: {
+        key: "return_product",
+      },
     },
   },
 };
@@ -45,7 +51,9 @@ const returnBookedError = {
     key: "RETURN_EVENT_BOOKED_ERROR",
     analytics: "exception",
     event_phase: {
-      key: "TEMPORARILY_KEY__BOOK_FAILED",
+      event_stage: {
+        key: "return_product",
+      },
     },
   },
 };
@@ -58,7 +66,9 @@ const qualityCheckInProgress = {
     key: "RETURN_EVENT_QUALITY_CHECK_IN_PROGRESS",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__QUALITY_CHECK_IN_PROGRESS",
+      event_stage: {
+        key: "return_product",
+      },
     },
   },
 };
@@ -71,7 +81,9 @@ const returnCompleted = {
     key: "RETURN_EVENT_REFUND_COMPLETED",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__REFUND_COMPLETED",
+      event_stage: {
+        key: "refund_completed",
+      },
     },
   },
 };
