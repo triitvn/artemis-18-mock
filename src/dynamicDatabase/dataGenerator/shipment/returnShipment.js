@@ -177,6 +177,15 @@ const generateOrderShipments = () => {
   return [approvedShipment, returnCompleted];
 };
 
+// The email address more than 16 character
+const generateLongFromEmail = () => {
+  let shipment = generateApprovedShipment();
+  shipment = product(shipment, (draft) => {
+    draft.return.return_id = "LONG_EMAIL_ADDRESS"
+    draft.from_address.email = '123456789@parcelperform.com'
+  })
+}
+
 // Return shipment UI testing
 
 const generateCustomReturnShipment = ({
@@ -214,6 +223,7 @@ const generateAllShipmentKinds = () => {
     generateReturnCompletedShipment(),
     generateBookedSuccessWithLabelShipment(),
     generateReturnReceivedShipment(),
+    generateLongFromEmail(),
     ...generateOrderShipments(),
   ];
 };
