@@ -1,3 +1,12 @@
+const STAGE_KEYS = {
+  // Return shipment
+  // TODO: need to confirm with product
+  returnRequestReturn: "temporarily_key_request_return",
+  returnSelectShipmentMethod: "temporarily_key_select_shipment_method",
+  returnReturnProduct: "temporarily_key_return_product",
+  returnRefundCompleted: "temporarily_key_refund_completed",
+};
+
 const returnApproved = {
   event_type: "Request has been approved",
   event_time: "2022-01-01T00:05:00Z",
@@ -6,7 +15,9 @@ const returnApproved = {
     key: "RETURN_EVENT_REQUEST_APPROVED",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__APPROVED",
+      event_stage: {
+        key: STAGE_KEYS.returnSelectShipmentMethod,
+      },
     },
   },
 };
@@ -19,7 +30,9 @@ const returnCancelled = {
     key: "RETURN_EVENT_REQUEST_CANCELLED",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__CANCELLED",
+      event_stage: {
+        key: STAGE_KEYS.returnSelectShipmentMethod,
+      },
     },
   },
 };
@@ -32,7 +45,9 @@ const returnBookedSuccess = {
     key: "RETURN_EVENT_BOOKED_SUCCESS",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__SHIPPING",
+      event_stage: {
+        key: STAGE_KEYS.returnReturnProduct,
+      },
     },
   },
 };
@@ -45,7 +60,9 @@ const returnBookedError = {
     key: "RETURN_EVENT_BOOKED_ERROR",
     analytics: "exception",
     event_phase: {
-      key: "TEMPORARILY_KEY__BOOK_FAILED",
+      event_stage: {
+        key: STAGE_KEYS.returnReturnProduct,
+      },
     },
   },
 };
@@ -58,7 +75,9 @@ const qualityCheckInProgress = {
     key: "RETURN_EVENT_QUALITY_CHECK_IN_PROGRESS",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__QUALITY_CHECK_IN_PROGRESS",
+      event_stage: {
+        key: STAGE_KEYS.returnReturnProduct,
+      },
     },
   },
 };
@@ -71,7 +90,9 @@ const returnCompleted = {
     key: "RETURN_EVENT_REFUND_COMPLETED",
     analytics: "regular",
     event_phase: {
-      key: "TEMPORARILY_KEY__REFUND_COMPLETED",
+      event_stage: {
+        key: STAGE_KEYS.returnRefundCompleted,
+      },
     },
   },
 };
