@@ -165,13 +165,13 @@ const generateOrderShipments = () => {
   let approvedShipment = produce(generateApprovedShipment(), (draft) => {
     draft.id = 1;
     draft.return.return_id = "RETURN_1";
-    draft.order_tracking = { order_code: "RETURN_APPROVED_COMPLETED" };
+    draft.order_tracking = { order_code: "RETURN_APPROVED_COMPLETED", order_id: "RETURN_APPROVED_COMPLETED" };
   });
 
   let returnCompleted = produce(generateReturnCompletedShipment(), (draft) => {
     draft.id = 2;
     draft.return.return_id = "RETURN_2";
-    draft.order_tracking = { order_code: "RETURN_APPROVED_COMPLETED" };
+    draft.order_tracking = { order_code: "RETURN_APPROVED_COMPLETED", order_id: "RETURN_APPROVED_COMPLETED" };
   });
 
   return [approvedShipment, returnCompleted];
