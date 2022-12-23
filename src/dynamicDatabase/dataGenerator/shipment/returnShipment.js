@@ -174,7 +174,13 @@ const generateOrderShipments = () => {
     draft.order_tracking = { order_code: "RETURN_APPROVED_COMPLETED", order_id: "RETURN_APPROVED_COMPLETED" };
   });
 
-  return [approvedShipment, returnCompleted];
+  let shippingShipment = produce(generateShippingShipment(), (draft) => {
+    draft.id = 3;
+    draft.return.return_id = "RETURN_3";
+    draft.order_tracking = { order_code: "RETURN_APPROVED_COMPLETED", order_id: "RETURN_APPROVED_COMPLETED" };
+  });
+
+  return [approvedShipment, shippingShipment, returnCompleted];
 };
 
 // The email address more than 16 character
