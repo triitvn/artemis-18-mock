@@ -184,6 +184,7 @@ const generateLongFromEmail = () => {
     draft.return.return_id = "LONG_EMAIL_ADDRESS"
     draft.from_address.email = '123456789@parcelperform.com'
   })
+  return shipment
 }
 
 // Return shipment UI testing
