@@ -1,3 +1,12 @@
+const STAGE_KEYS = {
+  // Return shipment
+  // TODO: need to confirm with product
+  returnRequestReturn: "temporarily_key_request_return",
+  returnSelectShipmentMethod: "temporarily_key_select_shipment_method",
+  returnReturnProduct: "temporarily_key_return_product",
+  returnRefundCompleted: "temporarily_key_refund_completed",
+};
+
 const returnApproved = {
   event_type: "Request has been approved",
   event_time: "2022-01-01T00:05:00Z",
@@ -7,7 +16,7 @@ const returnApproved = {
     analytics: "regular",
     event_phase: {
       event_stage: {
-        key: "select_shipment_method",
+        key: STAGE_KEYS.returnSelectShipmentMethod,
       },
     },
   },
@@ -22,7 +31,7 @@ const returnCancelled = {
     analytics: "regular",
     event_phase: {
       event_stage: {
-        key: "select_shipment_method",
+        key: STAGE_KEYS.returnSelectShipmentMethod,
       },
     },
   },
@@ -37,7 +46,7 @@ const returnBookedSuccess = {
     analytics: "regular",
     event_phase: {
       event_stage: {
-        key: "return_product",
+        key: STAGE_KEYS.returnReturnProduct,
       },
     },
   },
@@ -52,7 +61,7 @@ const returnBookedError = {
     analytics: "exception",
     event_phase: {
       event_stage: {
-        key: "return_product",
+        key: STAGE_KEYS.returnReturnProduct,
       },
     },
   },
@@ -67,7 +76,7 @@ const qualityCheckInProgress = {
     analytics: "regular",
     event_phase: {
       event_stage: {
-        key: "return_product",
+        key: STAGE_KEYS.returnReturnProduct,
       },
     },
   },
@@ -82,7 +91,7 @@ const returnCompleted = {
     analytics: "regular",
     event_phase: {
       event_stage: {
-        key: "refund_completed",
+        key: STAGE_KEYS.returnRefundCompleted,
       },
     },
   },
