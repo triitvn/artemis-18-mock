@@ -22,7 +22,6 @@ const addConfirmedCollectionPointData = (shipment, options = {}) => {
         },
       },
     };
-    draft.parcel.carrier = generateCarrier();
   });
 };
 
@@ -136,6 +135,8 @@ const generateShippingShipment = () => {
       PARCEL_EVENTS.parcelPickedUp,
       PARCEL_EVENTS.parcelOrderProcessed,
     ];
+    draft.parcel.carrier = generateCarrier();
+    draft.parcel.destination_carrier = generateCarrier("upsglo");
   });
   shipment = updateReturnId(shipment, "SHIPPING");
   return shipment;
